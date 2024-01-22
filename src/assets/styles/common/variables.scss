@@ -1,15 +1,14 @@
-$color-background: rgb(255, 255, 255);
-$color-foreground: rgb(26, 22, 24);
-$color-shadow: rgb(204, 181, 193);
-$color-button: rgb(231, 50, 149);
-$color-button-text: rgb(255, 255, 255);
-$color-secondary-button: rgb(255, 255, 255);
-$color-secondary-button-text: rgb(231, 50, 149);
-$color-link: rgb(231, 50, 149);
-$color-badge-foreground: rgb(26, 22, 24);
-$color-badge-background: rgb(255, 255, 255);
-$color-badge-border: rgb(26, 22, 24);
-$gradient-background: #ffffff;
-$payment-terms-background-color: rgb(255, 255, 255);
-
+$color-background: var(--color-background);
+$color-foreground: var(--color-foreground);
+$color-shadow: var(--color-shadow);
+$color-button: var(--color-button);
+$color-button-text: var(--color-button-text);
+$color-secondary-button: var(--color-secondary-button);
+$color-secondary-button-text: var(--color-secondary-button-text);
+$color-link: var(--color-link);
+$color-badge-foreground: var(--color-badge-foreground);
+$color-badge-background: var(--color-badge-background);
+$color-badge-border: var(--color-badge-border);
+$gradient-background: var(--gradient-background);
+$payment-terms-background-color: var(--payment-terms-background-color);
 $font-main: var(--font-main);

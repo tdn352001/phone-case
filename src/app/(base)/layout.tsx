@@ -1,5 +1,5 @@
 import { PropsWithChildren } from 'react'
-import Footer from './_components/footer'
+import Footer from '~/app/(base)/_components/footer'
 import Header from './_components/header'
 
 const BaseLayout = ({ children }: PropsWithChildren) => {
@@ -8,7 +8,7 @@ const BaseLayout = ({ children }: PropsWithChildren) => {
       <Header />
       <div
         style={{
-          height: '5000px',
+          height: '500px',
           backgroundImage: 'linear-gradient(to bottom, red, yellow)',
           backgroundSize: '200px',
         }}
