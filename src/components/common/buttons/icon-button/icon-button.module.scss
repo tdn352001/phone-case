@@ -1,0 +1,10 @@
+@import 'src/assets/styles';
+
+.btn {
+  width: 4.4rem;
+  height: 4.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $color-foreground;
+}

@@ -1,0 +1,31 @@
+@import 'src/assets/styles';
+
+.container {
+  display: none;
+  height: 100%;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+
+  span {
+    display: block;
+    @include text-xs();
+  }
+}
+
+@include desktops() {
+  .container {
+    display: flex;
+  }
+
+  .link {
+    span {
+      display: none;
+    }
+  }
+}

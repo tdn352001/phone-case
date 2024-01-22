@@ -1,7 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
+import deviceSlice from '~/store/slices/device'
 
 export const store = configureStore({
-  reducer: {},
+  reducer: {
+    [deviceSlice.name]: deviceSlice.reducer,
+  },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: false,

@@ -1,0 +1,153 @@
+@import 'src/assets/styles';
+
+.container {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  background-color: transparent;
+  overflow: hidden;
+  transition: background-color 0.3s ease-in-out;
+  pointer-events: none;
+
+  &.show {
+    background-color: rgba($color-foreground, 0.8);
+  }
+}
+
+.inner {
+  width: calc(100% - 4rem);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(-100%);
+  padding-top: var(--header-height);
+  background-color: $color-background;
+  pointer-events: all;
+
+  &.show {
+    transform: translateX(0);
+  }
+}
+
+.list {
+  width: 100%;
+  // height: 100%;
+  padding: 5.6rem 0;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  @include scrollbarStyle();
+}
+
+.item {
+  width: 100%;
+
+  &-main {
+    width: 100%;
+    padding: 1.2rem 3.2rem;
+    background-color: transparent;
+    transition: background-color 0.3s ease-in-out;
+    color: $color-foreground;
+    @include text-md();
+
+    &:hover {
+      background-color: rgba($color-foreground, 0.04);
+    }
+
+    &--button {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      svg {
+        transition: transform 0.3s ease-in-out;
+      }
+
+      &.selected {
+        svg {
+          transform: rotate(180deg);
+        }
+      }
+    }
+
+    &--link {
+      display: block;
+    }
+  }
+
+  &-sub {
+    height: 0;
+    overflow: hidden;
+
+    &-list {
+      display: flex;
+      flex-direction: column;
+      padding-left: 3.2rem;
+    }
+  }
+}
+
+.user {
+  display: flex;
+  height: auto;
+  padding: 3.2rem;
+  margin-top: auto;
+  background-color: rgba($color-foreground, 0.03);
+}
+
+@include desktops() {
+  .container {
+    position: relative;
+    background-color: $color-background;
+    padding-top: 1.6rem;
+    overflow: visible;
+  }
+
+  .inner {
+    width: 100%;
+    height: auto;
+    padding-top: 0;
+    transform: translateX(0);
+  }
+
+  .list {
+    padding: 0;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    overflow-y: hidden;
+  }
+
+  .item {
+    width: fit-content;
+
+    &-main {
+      width: fit-content;
+      padding: 1.2rem;
+      background-color: transparent;
+      @include text-xs();
+
+      &:hover {
+        background-color: transparent;
+        text-decoration: underline;
+      }
+    }
+
+    &-sub {
+      position: absolute;
+      width: 100%;
+      top: 100%;
+      left: 0;
+      z-index: 30;
+      background-color: $color-background;
+      &-list {
+        border-top: 0.1rem solid rgba($color-foreground, 0.1);
+      }
+    }
+  }
+
+  .user {
+    display: none;
+  }
+}

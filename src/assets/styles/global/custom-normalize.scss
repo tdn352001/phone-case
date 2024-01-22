@@ -1,0 +1,73 @@
+@import 'src/assets/styles';
+
+html {
+  font-size: 62.5%;
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-size: 1.6rem;
+  min-height: 100%;
+}
+
+html,
+body,
+#__next {
+  height: 100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  margin: 0;
+}
+
+input,
+a,
+button {
+  &:focus {
+    outline: 0.1rem solid #fffffff2;
+
+    &:not(:focus-visible) {
+      outline: 0;
+      box-shadow: none;
+    }
+  }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+button {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  background-color: transparent;
+  border: none;
+
+  &:disabled {
+    cursor: default;
+  }
+}
+
+fieldset {
+  padding: 0;
+  border: none;
+}
+
+ul {
+  list-style: none;
+}

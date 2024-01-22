@@ -1,0 +1,18 @@
+@import 'variables';
+
+@mixin scrollbarStyle($track-color: $color-background, $thumb-color: #a8a8a8) {
+  &::-webkit-scrollbar {
+    width: 8px;
+    background-color: $track-color;
+  }
+
+  &::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 8px $track-color;
+    background-color: $track-color;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 0.4rem $thumb-color;
+    background-color: $thumb-color;
+  }
+}

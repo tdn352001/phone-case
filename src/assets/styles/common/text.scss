@@ -1,0 +1,14 @@
+@mixin text-xs() {
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+}
+
+@mixin text-base() {
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+}
+
+@mixin text-md() {
+  font-size: 1.8rem;
+  line-height: 2.4rem;
+}
