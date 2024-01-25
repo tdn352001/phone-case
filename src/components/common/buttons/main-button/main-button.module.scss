@@ -1,0 +1,55 @@
+@import 'src/assets/styles';
+
+.button {
+  position: relative;
+  min-height: 4.8rem;
+  padding: 0 3rem;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background-color: $color-button;
+  border-radius: 4rem;
+  color: $color-button-text;
+  overflow: hidden;
+  transition: opacity 0.2s ease-in-out;
+
+  &.loading {
+    cursor: default;
+  }
+
+  &:not(.loading) {
+    &:hover {
+      opacity: 0.7;
+    }
+
+    &:active {
+      opacity: 0.5;
+    }
+  }
+}
+
+.outlet {
+  opacity: 1;
+
+  &.loading {
+    opacity: 0;
+  }
+}
+
+.spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2.4rem;
+  transform-origin: center center;
+  animation: spinner 1s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes spinner {
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}

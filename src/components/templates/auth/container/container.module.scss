@@ -1,0 +1,14 @@
+@import 'src/assets/styles';
+
+.container {
+  width: 100%;
+  max-width: 33.4rem;
+  padding: 2.8rem 1.6rem;
+  margin: 0 auto;
+}
+
+@include desktops {
+  .container {
+    max-width: 44.8rem;
+  }
+}

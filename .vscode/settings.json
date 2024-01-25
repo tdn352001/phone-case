@@ -2,5 +2,6 @@
   "typescript.preferences.importModuleSpecifier": "non-relative",
   "tailwindCSS.rootFontSize": 10,
   "tailwindCSS.experimental.classRegex": ["Classnames\\s*=\\s*['\"`]([^'\"`]*)['\"`]"],
-  "cSpell.words": ["Collab", "Inspo", "Lucide", "Webp"]
+  "cSpell.words": ["Collab", "Inspo", "Lucide", "Webp"],
+  "prettier.printWidth": 100
 }

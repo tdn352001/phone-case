@@ -1,0 +1,19 @@
+@import 'src/assets/styles';
+
+.container {
+  width: 100%;
+  padding: 1rem 1.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  border: 0.1rem solid rgb(235, 0, 27, 0.5);
+}
+
+.icon {
+  color: rgb(235, 0, 27);
+}
+
+.message {
+  @include text-base();
+  color: rgba(26, 22, 24, 0.75);
+}

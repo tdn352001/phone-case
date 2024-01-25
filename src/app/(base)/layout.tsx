@@ -6,15 +6,7 @@ const BaseLayout = ({ children }: PropsWithChildren) => {
   return (
     <div>
       <Header />
-      <div
-        style={{
-          height: '500px',
-          backgroundImage: 'linear-gradient(to bottom, red, yellow)',
-          backgroundSize: '200px',
-        }}
-      >
-        {children}
-      </div>
+      {children}
       <Footer />
     </div>
   )
