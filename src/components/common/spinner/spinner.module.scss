@@ -1,0 +1,14 @@
+@import 'src/assets/styles';
+
+.spinner {
+  font-size: 2.4rem;
+  transform-origin: center center;
+  animation: spinner 1s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}

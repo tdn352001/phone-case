@@ -1,0 +1,14 @@
+%underline-actions {
+  @include text-xs();
+  letter-spacing: 0.06rem;
+  color: $color-link;
+  transition: text-decoration-thickness ease 0.1s;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 0.3rem;
+  text-decoration-thickness: 0.1rem;
+
+  &:hover {
+    text-decoration-thickness: 0.2rem;
+  }
+}

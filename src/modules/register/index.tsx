@@ -2,6 +2,7 @@
 
 import { yupResolver } from '@hookform/resolvers/yup'
 import classNames from 'classnames/bind'
+import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { FormProvider, useForm } from 'react-hook-form'
 import * as yup from 'yup'
@@ -14,6 +15,10 @@ import AuthForm from '~/components/templates/auth/form'
 import AuthHeading from '~/components/templates/auth/heading'
 import ThirdParties from '~/components/templates/auth/third-parties'
 import { routers } from '~/configs/routers'
+import { useAppDispatch } from '~/hooks/redux'
+import { tokenManager } from '~/libs/token-manager'
+import { authService } from '~/services/auth-service'
+import { authActions } from '~/store/slices/auth-slice'
 import styles from './register.module.scss'
 
 const cx = classNames.bind(styles)
@@ -31,6 +36,9 @@ const RegisterPageContent = () => {
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
 
+  const dispatch = useAppDispatch()
+  const router = useRouter()
+
   const methods = useForm<RegisterForm>({
     resolver: yupResolver(schema),
     mode: 'all',
@@ -41,10 +49,26 @@ const RegisterPageContent = () => {
   const handleSubmitForm = (data: RegisterForm) => {
     setLoading(true)
     setError('')
-    setTimeout(() => {
-      setLoading(false)
-      setError('Test error')
-    }, 2000)
+    authService
+      .register(data)
+      .then(({ data: { access_token, user } }) => {
+        tokenManager.saveToken(access_token)
+        dispatch(
+          authActions.setAuthState({
+            isCheckingAuth: false,
+            isCheckedAuth: true,
+            isAuth: true,
+            user,
+          })
+        )
+        router.push(routers.home)
+      })
+      .catch((err) => {
+        setError(err.message)
+      })
+      .finally(() => {
+        setLoading(false)
+      })
   }
 
   return (

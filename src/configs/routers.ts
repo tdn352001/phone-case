@@ -3,4 +3,5 @@ export const routers = {
   login: '/login',
   register: '/register',
   forgotPassword: '/forgot-password',
+  account: '/account',
 }

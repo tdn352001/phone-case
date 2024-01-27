@@ -1,0 +1,35 @@
+@import 'src/assets/styles';
+
+.button {
+  position: relative;
+  padding: 0.4rem 1.2rem;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+  cursor: pointer;
+  border-radius: 4rem;
+  color: $color-link;
+  overflow: hidden;
+}
+
+.outlet {
+  @extend %underline-actions;
+}
+
+.spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2.4rem;
+  transform-origin: center center;
+  animation: spinner 1s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes spinner {
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}

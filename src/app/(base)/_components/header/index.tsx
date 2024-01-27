@@ -21,6 +21,7 @@ const Header = () => {
 
   const navRef = useRef<any>(null)
   const toggleRef = useRef<any>(null)
+
   usePreventScroll(isMenuOpen && isMobile)
 
   useOnClickOutside(
@@ -49,7 +50,7 @@ const Header = () => {
         </Link>
         <IconButton icon="Search" />
       </div>
-      <Navbar show={isMenuOpen} ref={navRef} />
+      <Navbar show={isMenuOpen} ref={navRef} onCloseNav={setIsMenuOpen.bind(this, false)} />
     </header>
   )
 }

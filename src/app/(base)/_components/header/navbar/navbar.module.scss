@@ -141,8 +141,11 @@
       left: 0;
       z-index: 30;
       background-color: $color-background;
+
       &-list {
-        border-top: 0.1rem solid rgba($color-foreground, 0.1);
+        padding: 2.4rem clamp(20rem, 22dvw, 40rem);
+        border-top: 0.1rem solid rgba(26, 22, 24, 0.1);
+        border-bottom: 0.1rem solid rgba(26, 22, 24, 0.1);
       }
     }
   }

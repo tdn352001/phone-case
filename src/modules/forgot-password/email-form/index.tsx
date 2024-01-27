@@ -13,6 +13,7 @@ import AuthContainer from '~/components/templates/auth/container'
 import AuthForm from '~/components/templates/auth/form'
 import AuthHeading from '~/components/templates/auth/heading'
 import { routers } from '~/configs/routers'
+import { authService } from '~/services/auth-service'
 import styles from './email-form.module.scss'
 
 const cx = classNames.bind(styles)
@@ -45,8 +46,16 @@ const EmailForm = ({ email, onSubmit }: EmailFormProps) => {
   const handleSubmitForm = ({ email }: EmailFormType) => {
     setLoading(true)
     setError('')
-
-    onSubmit?.(email)
+    authService
+      .forgotPassword(email)
+      .then(() => {
+        setLoading(false)
+        onSubmit?.(email)
+      })
+      .catch((err) => {
+        setError(err.message)
+        setLoading(false)
+      })
   }
 
   return (

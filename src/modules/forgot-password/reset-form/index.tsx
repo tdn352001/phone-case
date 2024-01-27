@@ -2,8 +2,10 @@
 
 import { yupResolver } from '@hookform/resolvers/yup'
 import classNames from 'classnames/bind'
+import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { FormProvider, useForm } from 'react-hook-form'
+import { toast } from 'sonner'
 import * as yup from 'yup'
 import Button from '~/components/common/buttons/main-button'
 import ErrorMessage from '~/components/common/error-message'
@@ -14,12 +16,13 @@ import AuthForm from '~/components/templates/auth/form'
 import AuthHeading from '~/components/templates/auth/heading'
 import ThirdParties from '~/components/templates/auth/third-parties'
 import { routers } from '~/configs/routers'
+import { authService } from '~/services/auth-service'
 import styles from './reset-form.module.scss'
 
 const cx = classNames.bind(styles)
 
 const schema = yup.object().shape({
-  email: yup.string().email('Email is not valid.'),
+  email: yup.string().required().email('Email is not valid.'),
   code: yup.string().required('Required field'),
   password: yup.string().required('Required field'),
 })
@@ -35,6 +38,7 @@ const ResetForm = ({ email }: ResetFormProps) => {
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
 
+  const router = useRouter()
   const methods = useForm<ResetFormType>({
     resolver: yupResolver(schema),
     mode: 'all',
@@ -48,10 +52,18 @@ const ResetForm = ({ email }: ResetFormProps) => {
   const handleSubmitForm = (data: ResetFormType) => {
     setLoading(true)
     setError('')
-    setTimeout(() => {
-      setLoading(false)
-      setError('Test error')
-    }, 2000)
+    authService
+      .resetPassword(data)
+      .then(() => {
+        router.push(routers.login)
+        toast.success('Password has been changed successfully')
+      })
+      .catch((err) => {
+        setError(err.message)
+      })
+      .finally(() => {
+        setLoading(false)
+      })
   }
 
   return (

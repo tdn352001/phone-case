@@ -15,6 +15,7 @@ const cx = classNames.bind(styles)
 interface NavbarProps {
   className?: string | string[]
   show?: boolean
+  onCloseNav?: () => void
 }
 
 export interface NavItem {
@@ -24,7 +25,7 @@ export interface NavItem {
   children?: Omit<NavItem, 'children' | 'id'>[]
 }
 
-const Navbar = ({ className, show }: NavbarProps, ref: any) => {
+const Navbar = ({ className, show, onCloseNav }: NavbarProps, ref: any) => {
   const [expandedId, setExpandedId] = useState<number>()
   const isDesktop = useDesktopScreen()
 
@@ -45,6 +46,7 @@ const Navbar = ({ className, show }: NavbarProps, ref: any) => {
 
   const handleHiddenExpandedItem = () => {
     setExpandedId(undefined)
+    onCloseNav?.()
   }
 
   useOnClickOutside(
@@ -112,7 +114,7 @@ const Navbar = ({ className, show }: NavbarProps, ref: any) => {
           })}
         </ul>
 
-        <UserActions className={cx('user')} />
+        <UserActions className={cx('user')} onCloseNav={onCloseNav} />
       </div>
     </nav>
   )

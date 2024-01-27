@@ -9,7 +9,7 @@ const RootLayout = ({ children }: PropsWithChildren) => (
   <html lang="en">
     <body className={fonts.assistantFont.className}>
       <Providers>{children}</Providers>
-      <Toaster />
+      <Toaster richColors duration={5000} position="top-right" />
     </body>
   </html>
 )
