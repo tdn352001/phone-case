@@ -12,59 +12,63 @@ import Link from '~/components/common/link'
 import AuthContainer from '~/components/templates/auth/container'
 import AuthForm from '~/components/templates/auth/form'
 import AuthHeading from '~/components/templates/auth/heading'
-import ThirdParties from '~/components/templates/auth/third-parties'
 import { routers } from '~/configs/routers'
-import styles from './login.module.scss'
+import styles from './email-form.module.scss'
 
 const cx = classNames.bind(styles)
 
 const schema = yup.object().shape({
   email: yup.string().required('Required field.').email('Email is not valid.'),
-  password: yup.string().required('Required field'),
 })
 
-type LoginForm = yup.InferType<typeof schema>
+type EmailFormType = yup.InferType<typeof schema>
 
-const LoginPageContent = () => {
+interface EmailFormProps {
+  email?: string
+  onSubmit?: (email: string) => void
+}
+
+const EmailForm = ({ email, onSubmit }: EmailFormProps) => {
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
 
-  const methods = useForm<LoginForm>({
+  const methods = useForm<EmailFormType>({
     resolver: yupResolver(schema),
     mode: 'all',
     criteriaMode: 'all',
     reValidateMode: 'onChange',
+    defaultValues: {
+      email,
+    },
   })
 
-  const handleSubmitForm = (data: LoginForm) => {
+  const handleSubmitForm = ({ email }: EmailFormType) => {
     setLoading(true)
     setError('')
-    setTimeout(() => {
-      setLoading(false)
-      setError('Test error')
-    }, 2000)
+
+    onSubmit?.(email)
   }
 
   return (
     <FormProvider {...methods}>
       <AuthContainer>
-        <AuthHeading title="Login" />
+        <AuthHeading
+          title="Reset your password"
+          subtitle="We will send you an email containing a code to reset password."
+        />
         <AuthForm onSubmit={methods.handleSubmit(handleSubmitForm)}>
           <TextField name="email" placeholder="Email" />
-          <TextField name="password" type="password" placeholder="Password" />
-          <Link href={routers.forgotPassword}>Forgot your password?</Link>
           <ErrorMessage message={error} />
           <Button className={cx('btn-submit', 'align-center')} loading={loading}>
-            Login
+            Submit
           </Button>
-          <Link className={cx('align-center')} href={routers.register}>
-            Create account
+          <Link className={cx('align-center')} href={routers.login}>
+            Login
           </Link>
         </AuthForm>
-        <ThirdParties />
       </AuthContainer>
     </FormProvider>
   )
 }
 
-export default LoginPageContent
+export default EmailForm

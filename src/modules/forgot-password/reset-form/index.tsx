@@ -14,29 +14,38 @@ import AuthForm from '~/components/templates/auth/form'
 import AuthHeading from '~/components/templates/auth/heading'
 import ThirdParties from '~/components/templates/auth/third-parties'
 import { routers } from '~/configs/routers'
-import styles from './login.module.scss'
+import styles from './reset-form.module.scss'
 
 const cx = classNames.bind(styles)
 
 const schema = yup.object().shape({
-  email: yup.string().required('Required field.').email('Email is not valid.'),
+  email: yup.string().email('Email is not valid.'),
+  code: yup.string().required('Required field'),
   password: yup.string().required('Required field'),
 })
 
-type LoginForm = yup.InferType<typeof schema>
+type ResetFormType = yup.InferType<typeof schema>
 
-const LoginPageContent = () => {
+interface ResetFormProps {
+  email: string
+  onPrevStep?: () => void
+}
+
+const ResetForm = ({ email }: ResetFormProps) => {
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
 
-  const methods = useForm<LoginForm>({
+  const methods = useForm<ResetFormType>({
     resolver: yupResolver(schema),
     mode: 'all',
     criteriaMode: 'all',
     reValidateMode: 'onChange',
+    defaultValues: {
+      email,
+    },
   })
 
-  const handleSubmitForm = (data: LoginForm) => {
+  const handleSubmitForm = (data: ResetFormType) => {
     setLoading(true)
     setError('')
     setTimeout(() => {
@@ -48,17 +57,17 @@ const LoginPageContent = () => {
   return (
     <FormProvider {...methods}>
       <AuthContainer>
-        <AuthHeading title="Login" />
+        <AuthHeading title="Reset password" subtitle="Enter your code and new password" />
         <AuthForm onSubmit={methods.handleSubmit(handleSubmitForm)}>
-          <TextField name="email" placeholder="Email" />
+          <TextField name="email" placeholder="Email" disabled />
+          <TextField name="code" placeholder="Code" />
           <TextField name="password" type="password" placeholder="Password" />
-          <Link href={routers.forgotPassword}>Forgot your password?</Link>
           <ErrorMessage message={error} />
           <Button className={cx('btn-submit', 'align-center')} loading={loading}>
-            Login
+            Reset password
           </Button>
-          <Link className={cx('align-center')} href={routers.register}>
-            Create account
+          <Link className={cx('align-center')} href={routers.login}>
+            Login
           </Link>
         </AuthForm>
         <ThirdParties />
@@ -67,4 +76,4 @@ const LoginPageContent = () => {
   )
 }
 
-export default LoginPageContent
+export default ResetForm

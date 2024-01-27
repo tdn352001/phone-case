@@ -14,29 +14,31 @@ import AuthForm from '~/components/templates/auth/form'
 import AuthHeading from '~/components/templates/auth/heading'
 import ThirdParties from '~/components/templates/auth/third-parties'
 import { routers } from '~/configs/routers'
-import styles from './login.module.scss'
+import styles from './register.module.scss'
 
 const cx = classNames.bind(styles)
 
 const schema = yup.object().shape({
   email: yup.string().required('Required field.').email('Email is not valid.'),
+  first_name: yup.string().required('Required field'),
+  last_name: yup.string().required('Required field'),
   password: yup.string().required('Required field'),
 })
 
-type LoginForm = yup.InferType<typeof schema>
+type RegisterForm = yup.InferType<typeof schema>
 
-const LoginPageContent = () => {
+const RegisterPageContent = () => {
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
 
-  const methods = useForm<LoginForm>({
+  const methods = useForm<RegisterForm>({
     resolver: yupResolver(schema),
     mode: 'all',
     criteriaMode: 'all',
     reValidateMode: 'onChange',
   })
 
-  const handleSubmitForm = (data: LoginForm) => {
+  const handleSubmitForm = (data: RegisterForm) => {
     setLoading(true)
     setError('')
     setTimeout(() => {
@@ -48,17 +50,18 @@ const LoginPageContent = () => {
   return (
     <FormProvider {...methods}>
       <AuthContainer>
-        <AuthHeading title="Login" />
+        <AuthHeading title="Create account" />
         <AuthForm onSubmit={methods.handleSubmit(handleSubmitForm)}>
+          <TextField name="first_name" placeholder="First Name" />
+          <TextField name="last_name" placeholder="Last Name" />
           <TextField name="email" placeholder="Email" />
           <TextField name="password" type="password" placeholder="Password" />
-          <Link href={routers.forgotPassword}>Forgot your password?</Link>
           <ErrorMessage message={error} />
           <Button className={cx('btn-submit', 'align-center')} loading={loading}>
-            Login
+            Register
           </Button>
-          <Link className={cx('align-center')} href={routers.register}>
-            Create account
+          <Link className={cx('align-center')} href={routers.login}>
+            Login
           </Link>
         </AuthForm>
         <ThirdParties />
@@ -67,4 +70,4 @@ const LoginPageContent = () => {
   )
 }
 
-export default LoginPageContent
+export default RegisterPageContent
