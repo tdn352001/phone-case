@@ -7,7 +7,8 @@ html {
 }
 
 body {
-  font-size: 1.6rem;
+  @include text-base();
+  color: rgba(26, 22, 24, 0.75);
   min-height: 100%;
 }
 

@@ -1,0 +1,17 @@
+@import 'src/assets/styles';
+
+.title {
+  font-size: 3rem;
+  line-height: 1.3;
+  letter-spacing: 0.06rem;
+  color: $color-foreground;
+  font-weight: 400;
+  margin: 0.8em 0;
+  text-align: center;
+}
+
+@include desktops() {
+  .title {
+    font-size: 4rem;
+  }
+}
