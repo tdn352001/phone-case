@@ -1,0 +1,11 @@
+@import 'src/assets/styles';
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.select {
+  min-width: 18rem;
+}

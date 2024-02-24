@@ -1,7 +1,6 @@
-import PolicyBody from '~/app/(base)/policies/_components/body'
-import PolicyContainer from '~/app/(base)/policies/_components/container'
-import PolicyTitle from '~/app/(base)/policies/_components/title'
-
+import PolicyBody from '~/components/templates/policy/body'
+import PolicyContainer from '~/components/templates/policy/container'
+import PolicyTitle from '~/components/templates/policy/title'
 const PrivacyPolicyPage = () => {
   return (
     <PolicyContainer>

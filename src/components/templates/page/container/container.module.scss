@@ -1,0 +1,15 @@
+@import 'src/assets/styles';
+
+.container {
+  max-width: 110rem;
+  margin: 0 auto;
+  padding: 4rem 1.6rem;
+}
+
+@include tablets() {
+  .container {
+    padding-left: 5rem;
+    padding-right: 5rem;
+    min-height: calc(100dvh - 48.4rem);
+  }
+}

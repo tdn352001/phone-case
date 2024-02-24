@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { forwardRef, useRef, useState } from 'react'
 import UserActions from '~/app/(base)/_components/header/user-actions'
 import Icon from '~/components/common/icon'
+import { routers } from '~/configs/routers'
 import { useDesktopScreen } from '~/hooks/device/use-desktop-screen'
 import { useOnClickOutside } from '~/hooks/ui'
 import styles from './navbar.module.scss'
@@ -129,7 +130,7 @@ const navs: NavItem[] = [
   {
     id: 2,
     label: 'New',
-    link: '#',
+    link: routers.new,
   },
   {
     id: 3,

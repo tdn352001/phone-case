@@ -1,6 +1,7 @@
 @import 'src/assets/styles';
 
 .button {
+  @extend %underline-actions;
   position: relative;
   padding: 0.4rem 1.2rem;
   display: inline-flex;
@@ -11,10 +12,6 @@
   border-radius: 4rem;
   color: $color-link;
   overflow: hidden;
-}
-
-.outlet {
-  @extend %underline-actions;
 }
 
 .spinner {

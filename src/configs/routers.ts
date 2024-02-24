@@ -4,4 +4,9 @@ export const routers = {
   register: '/register',
   forgotPassword: '/forgot-password',
   account: '/account',
+  new: '/new',
+}
+
+export const dynamicRouters = {
+  caseDetail: (id: string) => `/case/${id}`,
 }

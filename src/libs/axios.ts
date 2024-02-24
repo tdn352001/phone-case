@@ -1,11 +1,5 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios'
-
-export const isDev =
-  process.env.NEXT_PUBLIC_API_ENDPOINTS_ENV === 'development' ||
-  !process.env.NODE_ENV ||
-  process.env.NODE_ENV === 'development'
-
-const baseURL = isDev ? 'http://10.0.0.185:8001/api/v1' : 'http://10.0.0.185:8001/api/v1'
+import { serverUrl } from '~/configs/environment'
 
 export interface ApiError {
   code?: number | string
@@ -14,7 +8,7 @@ export interface ApiError {
 }
 
 const axiosClient = axios.create({
-  baseURL: baseURL,
+  baseURL: serverUrl,
 })
 
 axiosClient.interceptors.request.use((config) => {
