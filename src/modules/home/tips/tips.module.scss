@@ -1,0 +1,30 @@
+@import 'src/assets/styles';
+
+.container {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  overflow: hidden;
+  background-color: #000000;
+  min-height: 2.8rem;
+}
+
+.text {
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  color: #e8e8e8;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  position: relative;
+  animation: marquee 10s linear infinite;
+}
+
+@keyframes marquee {
+  0% {
+    left: 100%;
+  }
+  100% {
+    left: -100%;
+  }
+}

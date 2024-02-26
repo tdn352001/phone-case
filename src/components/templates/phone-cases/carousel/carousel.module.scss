@@ -1,0 +1,36 @@
+@import 'src/assets/styles';
+
+.list {
+  display: flex;
+  // overflow-x: auto;
+  overflow-x: hidden;
+  white-space: nowrap;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-snap-type: x mandatory; /* Enable horizontal scroll snapping */
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.item {
+  flex: 0 0 100%; /* by default, show 1 item per slide */
+  scroll-snap-align: start;
+}
+
+.controls {
+  margin-top: 4rem;
+}
+
+@include tablets {
+  .item {
+    flex: 0 0 50%; /* show 2 items per slide */
+  }
+}
+
+@include desktops {
+  .item {
+    flex: 0 0 33.33%; /* show 3 items per slide */
+  }
+}

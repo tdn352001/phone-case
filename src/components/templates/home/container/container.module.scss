@@ -1,0 +1,7 @@
+@import 'src/assets/styles';
+
+@include desktops() {
+  .container {
+    padding-top: 8rem !important;
+  }
+}

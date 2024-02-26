@@ -3,4 +3,4 @@ export const isDev =
   !process.env.NODE_ENV ||
   process.env.NODE_ENV === 'development'
 
-export const serverUrl = isDev ? 'http://10.0.0.185:8001/api/v1' : 'http://10.0.0.185:8001/api/v1'
+export const serverUrl = 'http://165.22.50.246:8000/api/v1'

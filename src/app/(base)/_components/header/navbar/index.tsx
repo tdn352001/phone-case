@@ -122,11 +122,11 @@ const Navbar = ({ className, show, onCloseNav }: NavbarProps, ref: any) => {
 }
 
 const navs: NavItem[] = [
-  {
-    id: 1,
-    label: "Valentine's Deal",
-    link: '#',
-  },
+  // {
+  //   id: 1,
+  //   label: "Valentine's Deal",
+  //   link: '#',
+  // },
   {
     id: 2,
     label: 'New',
