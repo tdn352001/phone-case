@@ -1,0 +1,31 @@
+@import 'src/assets/styles';
+
+.container {
+  width: 100%;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.6rem;
+}
+
+.detail {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.title {
+  font-size: 4rem;
+  line-height: 5.2rem;
+  color: rgb(26, 22, 24);
+  letter-spacing: 0.6px;
+}
+
+.price {
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  color: rgb(26, 22, 24);
+  letter-spacing: 1.3px;
+}

@@ -8,5 +8,5 @@ export const routers = {
 }
 
 export const dynamicRouters = {
-  caseDetail: (id: string) => `/case/${id}`,
+  caseDetail: (id: string) => `/products/${id}`,
 }

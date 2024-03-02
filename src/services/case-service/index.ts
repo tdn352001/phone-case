@@ -7,5 +7,9 @@ const getCases = async (request: GetPhoneCasesRequest) => {
   })
 }
 
+const getCaseDetail = async (id: string) => {
+  return get<GetPhoneCasesResponse>(`/case/${id}`)
+}
+
 export * from './type'
-export const caseService = { getCases }
+export const caseService = { getCases, getCaseDetail }
