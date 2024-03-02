@@ -13,6 +13,7 @@ import Share from '~/modules/product-detail/share'
 import Banner from '~/modules/product-detail/banner'
 import PageContainer from '~/components/templates/page/container'
 import { phoneModels } from '~/configs/case-model'
+import Assurances from '~/modules/product-detail/assurances'
 
 const cx = classNames.bind(styles)
 
@@ -31,13 +32,18 @@ const ProductDetailPageContent = ({ phoneCase }: Props) => {
           <p className={cx('price')}>{phoneCase.price.toLocaleString()} VNĐ</p>
           <PhoneDropdown value={selectedCase} onChange={setSelectedCase} />
           <CaseTypes />
-          <Button>Add to cart</Button>
-          <Button>Customize this case</Button>
+          <div className={cx('actions')}>
+            <Button className={cx('btn')} variant="outline">
+              Add to cart
+            </Button>
+            <Button className={cx('btn')}>Customize this case</Button>
+          </div>
           <CaseInstructions />
           <Share />
         </div>
-        <Banner />
+        <Assurances />
       </div>
+      <Banner />
     </PageContainer>
   )
 }

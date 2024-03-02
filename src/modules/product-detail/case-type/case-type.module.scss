@@ -1,0 +1,63 @@
+@import 'src/assets/styles';
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  max-width: 60rem;
+}
+
+.label {
+  font-size: 1.4rem;
+  line-height: 2rem;
+  letter-spacing: 0.04rem;
+  color: rgba(26, 22, 24, 0.75);
+}
+
+.list {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+}
+
+.item {
+  width: 9rem;
+  height: 11rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 0.8rem;
+  border: 0.1rem solid rgba(26, 22, 24, 0.1);
+  border-radius: 1.6rem;
+  overflow: hidden;
+  position: relative;
+
+  &.selected {
+    border-color: black;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+    object-position: center;
+  }
+
+  span {
+    display: block;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    background-color: #f2f2f2;
+    color: #000000;
+    font-size: 12px;
+    padding: 2px 0;
+    font-weight: bolder;
+    text-align: center;
+  }
+}

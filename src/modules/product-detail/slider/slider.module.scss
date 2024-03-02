@@ -46,3 +46,11 @@
     object-fit: contain;
   }
 }
+
+@include desktops {
+  .container {
+    // row 1, col 1
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+  }
+}

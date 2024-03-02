@@ -5,12 +5,13 @@ const cx = classNames.bind(styles)
 
 type ButtonProps = JSX.IntrinsicElements['button'] & {
   loading?: boolean
+  variant?: 'solid' | 'outline'
 }
 
-const Button = ({ className, loading, children, ...props }: ButtonProps) => {
+const Button = ({ className, loading, variant = 'solid', children, ...props }: ButtonProps) => {
   return (
-    <button className={cx('button', { loading }, className)} {...props}>
-      <span className={cx('outlet', { loading })}>{children}</span>
+    <button className={cx('button', { loading, [variant]: variant }, className)} {...props}>
+      <span className={cx('outlet', { loading, [variant]: variant })}>{children}</span>
       {loading && (
         <svg
           className={cx('spinner')}

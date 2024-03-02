@@ -8,7 +8,7 @@ const cx = classNames.bind(styles)
 const Banner = () => {
   return (
     <div className={cx('container')}>
-      <div>
+      <div className={cx('policies')}>
         <img src="/images/product-banner/1.webp" alt="banner" />
         <img src="/images/product-banner/2.webp" alt="banner" />
       </div>

@@ -1,0 +1,40 @@
+@import 'src/assets/styles';
+
+.container {
+  width: 100%;
+  padding: 1.2rem;
+  margin-top: 0.4rem;
+  border-top: 0.1rem solid rgba(26, 22, 24, 0.2);
+  border-bottom: 0.1rem solid rgba(26, 22, 24, 0.2);
+}
+
+.button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+
+  span {
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    color: rgba(26, 22, 24, 0.75);
+  }
+
+  svg {
+    &:last-child {
+      margin-left: auto;
+
+      &.show {
+        transform: rotate(180deg);
+        transform-origin: center;
+      }
+    }
+  }
+}
+
+.desc {
+  padding-top: 0.8rem;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  color: rgba(26, 22, 24, 0.75);
+}

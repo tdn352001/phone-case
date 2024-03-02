@@ -1,0 +1,29 @@
+@import 'src/assets/styles';
+
+.container {
+  width: 100%;
+
+  img {
+    width: 100%;
+  }
+}
+
+.policies {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@include desktops {
+  .policies {
+    margin-top: 4rem;
+
+    display: flex;
+    flex-direction: row;
+
+    img {
+      width: 50%;
+    }
+  }
+}

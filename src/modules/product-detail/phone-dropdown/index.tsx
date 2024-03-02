@@ -19,7 +19,13 @@ const phoneModelOptions = phoneModels.map((item) => ({
 const PhoneDropdown = ({ value, onChange }: PhoneDropdownProps) => {
   return (
     <div className={cx('container')}>
-      <Select label="Phone model" value={value} options={phoneModelOptions} onChange={onChange} />
+      <Select
+        className={cx('select')}
+        label="Phone model"
+        value={value}
+        options={phoneModelOptions}
+        onChange={onChange}
+      />
     </div>
   )
 }

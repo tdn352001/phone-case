@@ -1,6 +1,11 @@
-import { set } from 'lodash'
+import classNames from 'classnames/bind'
 import React, { useEffect } from 'react'
 import Icon from '~/components/common/icon'
+import styles from './share.module.scss'
+import TextButton from '~/components/common/buttons/text-button'
+import IconButton from '~/components/common/buttons/icon-button'
+
+const cx = classNames.bind(styles)
 
 const Share = () => {
   const [url, setUrl] = React.useState('')
@@ -11,18 +16,20 @@ const Share = () => {
   }, [])
 
   return (
-    <div>
-      <button>
-        <Icon name="Share" />
-        <span>Share</span>
-      </button>
+    <div className={cx('container')}>
+      <TextButton
+        className={cx('button')}
+        icon="Share"
+        iconOptions={{ size: 16 }}
+        onClick={setOpen.bind(this, !open)}
+      >
+        Share
+      </TextButton>
 
       {open && (
-        <div>
+        <div className={cx('share')}>
           <p>{url}</p>
-          <button>
-            <Icon name="Copy" />
-          </button>
+          <IconButton icon="Copy" />
         </div>
       )}
     </div>

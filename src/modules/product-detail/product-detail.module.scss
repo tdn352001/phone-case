@@ -14,6 +14,7 @@
   display: flex;
   flex-direction: column;
   gap: 1.6rem;
+  max-width: 60rem;
 }
 
 .title {
@@ -28,4 +29,29 @@
   line-height: 2.4rem;
   color: rgb(26, 22, 24);
   letter-spacing: 1.3px;
+}
+
+.actions {
+  max-width: 60rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.btn {
+  height: 4.5rem;
+  min-height: none;
+}
+
+@include desktops {
+  .main {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 2.4rem;
+  }
+
+  .detail {
+    grid-column: 2/2;
+    grid-row: 1/3;
+  }
 }

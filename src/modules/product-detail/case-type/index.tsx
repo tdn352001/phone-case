@@ -1,5 +1,10 @@
+/* eslint-disable @next/next/no-img-element */
 import React from 'react'
 import Image from 'next/image'
+import classNames from 'classnames/bind'
+import styles from './case-type.module.scss'
+
+const cx = classNames.bind(styles)
 
 interface CaseTypesProps {}
 
@@ -13,15 +18,18 @@ const caseTypes = [
 
 const CaseTypes = () => {
   return (
-    <div>
-      {caseTypes.map((item) => {
-        return (
-          <div key={item.id}>
-            <Image width={100} height={100} src={item.thumbnail} alt="case type" />
-            <p>{item.price.toLocaleString()} VNĐ</p>
-          </div>
-        )
-      })}
+    <div className={cx('container')}>
+      <p className={cx('label')}>Case type</p>
+      <div className={cx('list')}>
+        {caseTypes.map((item, index) => {
+          return (
+            <div key={item.id} className={cx('item', { selected: !index })}>
+              <img src={item.thumbnail} alt="case type" />
+              <span>{item.price.toLocaleString()} VNĐ</span>
+            </div>
+          )
+        })}
+      </div>
     </div>
   )
 }

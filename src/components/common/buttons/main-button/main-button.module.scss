@@ -8,11 +8,20 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  background-color: $color-button;
   border-radius: 4rem;
-  color: $color-button-text;
   overflow: hidden;
   transition: opacity 0.2s ease-in-out;
+
+  &.solid {
+    background-color: $color-button;
+    color: $color-button-text;
+  }
+
+  &.outline {
+    background-color: transparent;
+    border: 0.1rem solid $color-button;
+    color: $color-button;
+  }
 
   &.loading {
     cursor: default;

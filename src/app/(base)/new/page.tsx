@@ -3,7 +3,7 @@ import { CaseSortTypes, LIMIT, OrderTypes, caseSortTypes, orderTypes } from '~/c
 import NewDropsPageContent from '~/modules/new'
 import { GetPhoneCasesRequest, GetPhoneCasesResponse, caseService } from '~/services/case-service'
 
-export const getPhoneCases = cache(async (request: GetPhoneCasesRequest) => {
+const getPhoneCases = cache(async (request: GetPhoneCasesRequest) => {
   return caseService.getCases(request).catch((err): GetPhoneCasesResponse => {
     console.error(err)
     return {
@@ -35,8 +35,6 @@ const NewDropsPage = async ({
     sort: sortValue,
     order: orderValue,
   })
-
-  console.log({ res })
 
   return (
     <NewDropsPageContent
