@@ -2,7 +2,7 @@ import { cache } from 'react'
 import HomePageContent from '~/modules/home'
 import { GetPhoneCasesResponse, caseService } from '~/services/case-service'
 
-export const getData = cache(async () => {
+const getData = cache(async () => {
   const getCustomerChoices = caseService
     .getCases({
       limit: 8,
