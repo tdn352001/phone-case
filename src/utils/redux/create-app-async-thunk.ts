@@ -1,22 +1,14 @@
-import {
-  AsyncThunk,
-  AsyncThunkPayloadCreator,
-  createAsyncThunk,
-} from '@reduxjs/toolkit';
-import { AppDispatch, RootState } from 'renderer/store';
+import { AsyncThunk, AsyncThunkPayloadCreator, createAsyncThunk } from '@reduxjs/toolkit'
+import { AppDispatch, RootState } from '~/store'
 
 type AsyncThunkConfig = {
-  state: RootState;
-  dispatch: AppDispatch;
-};
+  state: RootState
+  dispatch: AppDispatch
+}
 
 export const createAppAsyncThunk = <Returned, ThunkArg = void>(
   typePrefix: string,
-  payloadCreator: AsyncThunkPayloadCreator<
-    Returned,
-    ThunkArg,
-    AsyncThunkConfig
-  >,
+  payloadCreator: AsyncThunkPayloadCreator<Returned, ThunkArg, AsyncThunkConfig>
 ): AsyncThunk<Returned, ThunkArg, AsyncThunkConfig> => {
-  return createAsyncThunk<Returned, ThunkArg>(typePrefix, payloadCreator);
-};
+  return createAsyncThunk<Returned, ThunkArg>(typePrefix, payloadCreator)
+}
