@@ -3,7 +3,7 @@ import React, { cache } from 'react'
 import ProductDetailPageContent from '~/modules/product-detail'
 import { GetCaseDetailResponse, caseService } from '~/services/case-service'
 
-export const getDetail = cache(async (id: string): Promise<GetCaseDetailResponse> => {
+const getDetail = cache(async (id: string): Promise<GetCaseDetailResponse> => {
   if (id == '1') {
     throw new Error('error')
   }
