@@ -50,7 +50,7 @@ const getData = cache(async () => {
   }
 })
 
-export const getNewDrops = cache(async () => {
+const getNewDrops = cache(async () => {
   return caseService
     .getCases({
       limit: 8,
